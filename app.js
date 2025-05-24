@@ -22,7 +22,7 @@ connectdatabase()
 
 //fix of cors error
 const cors =require("cors")
-const allowedorigin =["http://localhost:5173","https://myfirstproject-chi-snowy.vercel.app"]
+const allowedorigin ="http://localhost:5173"
 app.use(cors({
     origin:allowedorigin
 }))
@@ -49,11 +49,11 @@ console.log(req.body)
   }
 console.log(req.file)
 let filename;
-if(filename){
+if(req.file){
     
- filename ="https://mern-node-uezz.onrender.com/" + req.file.filename
+ filename ="http://localhost:4000/" + req.file.filename
 }else{
-    filename="https://mern-node-uezz.onrender.com/haha.gif"
+    filename="http://localhost:4000/haha.gif"
 }
 
 // blog bhana folder ma halnuparama create() method use huncha // 
@@ -135,7 +135,7 @@ app.patch('/blog/:id' ,upload.single('image') , async(req,res) =>{
     const {title,subtitle,description} = req.body
     let filename;
  if(req.file){
-    filename = "https://mern-node-uezz.onrender.com/" + req.file.filename
+    filename = "http://localhost:4000/" + req.file.filename
     const id = req.params.id
     const Blog = await blog.findById(id)
     const imageName = Blog.image
